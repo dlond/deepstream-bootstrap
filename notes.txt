@@ -1,0 +1,5 @@
+docker build -t mydeepstream:latest .
+
+docker run --rm -it --name mydeepstream --gpus all \
+    --mount type=bind,src=`pwd`/pytorch-video-pipeline,dst=/opt/nvidia/deepstream/deepstream/sources/apps/my-app/pytorch-video-pipeline \
+    --entrypoint bash mydeepstream:latest
